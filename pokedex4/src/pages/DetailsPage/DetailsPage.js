@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { goToBack } from '../Routes/Coordinator';
+import { goToBack } from '../../routes/coordinator';
 
 function DetailsPage() {
   const navigate = useNavigate()
