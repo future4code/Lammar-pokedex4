@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { goToDetailsPage, goToHomePage } from '../Routes/Coordinator';
+import { goToDetailsPage, goToHomePage } from '../../routes/coordinator';
 
 function Pokedex() {
   const navigate = useNavigate()
