@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { goToDetailsPage, goToPokedex } from '../../routes/coordinator';
 import axios from 'axios';
+import {Card, Container} from './style'
 
 function Home() {
   const navigate = useNavigate()
@@ -16,24 +17,25 @@ function Home() {
 
   const pokemonList = pokemons.map((pokemon) => {
     return (
-      <div>
-        <p>{pokemon.name}</p>
+      <Card>
         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png`} alt={pokemon.name}/>
-       	
+        <p>{pokemon.name}</p>
         <button onClick={() => goToDetailsPage(navigate, pokemon.name)}>Detalhes</button>
-      </div>
+      </Card>
     )
   })
 
     return (
       <div>
         <header>
-        <p>Home</p>
+        <p>Lista de Pokemons</p>
         <button onClick={() => {goToPokedex(navigate)}}> Ir para Pokedex</button>
         </header>
         <main>
+        <Container>
           {pokemonList}
         <button onClick={() => {goToDetailsPage(navigate)}}> Ver detalhes</button>
+        </Container>
         </main>
       </div>
     );
