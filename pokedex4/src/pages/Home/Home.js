@@ -1,44 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { goToDetailsPage, goToPokedex } from '../../routes/coordinator';
-import axios from 'axios';
-import {Card, Container} from './style'
+import React from 'react';
+import { useRequestData } from '../../hooks/useRequestData'
+import { BASE_URL } from '../../constants/constants'
+import { Button } from '@chakra-ui/react'
+import * as S from './style'
+import Header from '../../Components/Header/Header';
+
 
 function Home() {
-  const navigate = useNavigate()
 
-  const [pokemons, setPokemons] = useState([])
+  const [data] = useRequestData(`${BASE_URL}pokemon`)
+  console.log(data);
 
-  useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon")
-    .then((res) => {setPokemons(res.data.results)})
-    .catch((err) => {console.log(err)})
-  }, []);
-
-  const pokemonList = pokemons.map((pokemon) => {
+  const listPokemons = data && data.results.map((list) => {
     return (
-      <Card>
-        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png`} alt={pokemon.name}/>
-        <p>{pokemon.name}</p>
-        <button onClick={() => goToDetailsPage(navigate, pokemon.name)}>Detalhes</button>
-      </Card>
+      <div>
+
+        <S.Card key={list.name}>
+          <p>{list.name}</p>
+          <img src={list.url} alt="Imagem Pokémon" />
+        </S.Card>
+        <S.Buttons>
+          <Button colorScheme='blue'>Adicionar</Button>
+          <Button colorScheme='blue'>Ver detalhes</Button>
+        </S.Buttons>
+
+      </div>
     )
   })
 
-    return (
-      <div>
-        <header>
-        <p>Lista de Pokemons</p>
-        <button onClick={() => {goToPokedex(navigate)}}> Ir para Pokedex</button>
-        </header>
-        <main>
-        <Container>
-          {pokemonList}
-        <button onClick={() => {goToDetailsPage(navigate)}}> Ver detalhes</button>
-        </Container>
-        </main>
-      </div>
-    );
-  }
-  
-  export default Home;
+  return (
+    <div>
+      <Header />
+      <S.Container>
+        {listPokemons}
+      </S.Container>
+
+    </div>
+  );
+}
+
+export default Home;
