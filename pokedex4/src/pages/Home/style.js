@@ -6,7 +6,6 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 `
-
 export const Card = styled.li`
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@ export const Card = styled.li`
         text-transform: uppercase;
     }
 `
-
 export const Buttons = styled.ul`
     display: flex;
     justify-content: center;

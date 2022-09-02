@@ -9,7 +9,7 @@ function Router() {
   return (
     <BrowserRouter>
         <Routes>
-            <Route index element={ <Home/> }/>
+            <Route path='/' element={ <Home/> }/>
             <Route path="/pokedex" element={ <Pokedex/> }/>
             <Route path="/detalhes" element={ <DetailsPage/> }/>
             <Route path="/404" element={ <ErrorPage/> }/>
