@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useRequestData } from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/constants'
 import { Button } from '@chakra-ui/react'
 import * as S from './style'
 import Header from '../../Components/Header/Header';
-
+import { useNavigate } from 'react-router-dom'
+import { goToDetailsPage } from '../../routes/coordinator';
+// import { PokemonsContext } from '../../context/Context'
 
 function Home() {
-
+  const navigate = useNavigate()
   const [data] = useRequestData(`${BASE_URL}pokemon`)
-  console.log(data);
+
+  // const {pokemons, setPokemons} = useContext(PokemonsContext)
 
   const listPokemons = data && data.results.map((list) => {
     return (
@@ -21,7 +24,8 @@ function Home() {
         </S.Card>
         <S.Buttons>
           <Button colorScheme='blue'>Adicionar</Button>
-          <Button colorScheme='blue'>Ver detalhes</Button>
+          <Button colorScheme='blue'
+          onClick={() =>goToDetailsPage(navigate)}> Ver detalhes</Button>
         </S.Buttons>
 
       </div>
@@ -34,7 +38,6 @@ function Home() {
       <S.Container>
         {listPokemons}
       </S.Container>
-
     </div>
   );
 }
