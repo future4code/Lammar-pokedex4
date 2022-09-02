@@ -9,40 +9,42 @@ export const ImagesDetails = styled.div`
     width: 15vw;
   }
 `
-export const Poderes = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px;
+export const Containers = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
 
+
+
+
+`
+
+export const Container2 = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr ;
+
+
+
+
+`
+export const Poderes = styled.div`
+  text-align: center;
   border: 5px solid #feca05;
   background-color: #fce38c;
   border-radius: 10px;
 `
 export const Tipos = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
+  text-align: center;
   border: 5px solid #feca05;
   background-color: #fce38c;
   border-radius: 10px;
 `
 
 export const Ataques = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px;
-
+  text-align: center;
   border: 5px solid #feca05;
   background-color: #fce38c;
   border-radius: 10px;
-`
+` 
 
 export const PageDetail = styled.div`
   padding-right: 400px;

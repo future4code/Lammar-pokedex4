@@ -1,7 +1,7 @@
 import React from "react";
 import { goToBack } from "../../routes/coordinator";
 import Header from "../../Components/Header/Header";
-import { Ataques, Tipos, PageDetail, ImagesDetails, Poderes } from "./style";
+import { Ataques, Tipos, PageDetail, ImagesDetails, Poderes, Containers, Container2 } from "./style";
 
 function DetailsPage() {
   return (
@@ -25,7 +25,7 @@ function DetailsPage() {
             />
           </ImagesDetails>
 
-          <div>
+          <Containers>
             <Poderes>
               <h2>Status</h2>
 
@@ -37,6 +37,7 @@ function DetailsPage() {
               <p>velocidade: 45</p>
             </Poderes>
             <div>
+            <Container2>
               <Tipos>
                 <li>veneno</li>
                 <li>grama</li>
@@ -50,8 +51,9 @@ function DetailsPage() {
                 <li>Bind</li>
                 <li>Vine-Whip</li>
               </Ataques>
+              </Container2> 
             </div>
-          </div>
+          </Containers>
         </PageDetail>
       </div>
     </div>
