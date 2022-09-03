@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useRequestData } from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/constants'
 import { Button } from '@chakra-ui/react'
