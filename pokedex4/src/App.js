@@ -1,31 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Router from "./routes/router";
 import { ChakraProvider } from "@chakra-ui/react";
-import { GlobalStateContext } from "./context/GlobalStateContext"
-import { BASE_URL } from "./constants/constants";
-import { useRequestData } from './hooks/useRequestData'
+import { PokemonsContext } from "./context/Context"
 
 function App() {
 
   const [pokemons, setPokemons] = useState([])
-  const [pokedex, setPokedex] = useState([])
-
-  const states = { pokemons, pokedex }
-  const setters = { setPokemons, setPokedex }
-
-  const [data] = useRequestData({}, `${BASE_URL}?limit=30`);
-
-  useEffect(() => {    
-      setPokemons(data.results)
-  }, [data])
 
   return (
     <div>
-      <GlobalStateContext.Provider value={{ states, setters}}>
+      <PokemonsContext.Provider value={{pokemons, setPokemons}}>
         <ChakraProvider ChakraProvider>
           <Router />
         </ChakraProvider>
-      </GlobalStateContext.Provider>
+      </PokemonsContext.Provider>
     </div>
   );
 }
