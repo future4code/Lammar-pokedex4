@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from "axios"
+import { useEffect, useState } from "react"
 
-export const useRequestData = (url) => {
-    const [data, setData] = useState(undefined)
+export const useRequestData = (initialState, url) => {
+    const [data, setData] = useState(initialState)
 
     useEffect(() => {
         axios.get(url)
-            .then((response) => {
-                setData(response.data)
-            }).catch((error) => {
-                console.log(error.message);
+            .then((res) => {
+                setData(res.data)
+                console.log(initialState)
+            }).catch((err) => {
+                console.log(err)
             })
     }, [url])
 
