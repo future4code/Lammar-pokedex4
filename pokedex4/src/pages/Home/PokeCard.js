@@ -4,7 +4,7 @@ import { BASE_URL } from "../../constants/constants";
 import { Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import * as S from './style'
-import { GlobalStateContext } from "../../context/GlobalStateContext";
+import { GlobalStateContext } from "../../context/Context";
 import { useContext } from 'react';
 
 
@@ -15,7 +15,6 @@ export const PokeCard = (props) => {
   const navigate = useNavigate()
 
   const { capturaPokemon } = useContext(GlobalStateContext)
-
 
   return (
     <S.Conteudo>
