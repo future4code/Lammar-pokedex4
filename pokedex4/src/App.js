@@ -15,13 +15,28 @@ function App() {
 
   const [data] = useRequestData({}, `${BASE_URL}?limit=30`);
 
-  useEffect(() => {    
-      setPokemons(data.results)
+  useEffect(() => {
+    setPokemons(data.results)
   }, [data])
 
+  const listPokedex = []
+
+  const capturaPokemon = (id) => {
+
+    const index = pokemons.findIndex((pokemon) => {
+      return pokemons.id === id
+    })
+
+    if (index === -1) {
+      listPokedex.push({ ...pokemons })
+    }
+    setPokemons(listPokedex)
+  }
+
+  console.log(listPokedex);
   return (
     <div>
-      <GlobalStateContext.Provider value={{ states, setters}}>
+      <GlobalStateContext.Provider value={{ states, setters, capturaPokemon, listPokedex }}>
         <ChakraProvider ChakraProvider>
           <Router />
         </ChakraProvider>

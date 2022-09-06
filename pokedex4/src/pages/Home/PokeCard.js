@@ -4,6 +4,9 @@ import { BASE_URL } from "../../constants/constants";
 import { Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import * as S from './style'
+import { GlobalStateContext } from "../../context/GlobalStateContext";
+import { useContext } from 'react';
+
 
 export const PokeCard = (props) => {
 
@@ -11,11 +14,14 @@ export const PokeCard = (props) => {
 
   const navigate = useNavigate()
 
+  const { capturaPokemon } = useContext(GlobalStateContext)
+
+
   return (
     <S.Conteudo>
       <S.Card>
-        <img src={pokemon.sprites && pokemon.sprites.other.dream_world.front_default} 
-        alt={pokemon.name}
+        <img src={pokemon.sprites && pokemon.sprites.other.dream_world.front_default}
+          alt={pokemon.name}
         />
         <div>
           <p>{pokemon.name}</p>
@@ -23,16 +29,15 @@ export const PokeCard = (props) => {
       </S.Card>
 
       <S.Buttons>
-          <Button colorScheme='blue'>Capturar</Button>
-          <Button colorScheme='blue'
+        <Button colorScheme='blue' onClick={capturaPokemon}>Capturar</Button>
+        <Button colorScheme='blue'
           onClick={() => {
             navigate(`/${pokemon.name}`)
           }}> Ver detalhes</Button>
-        </S.Buttons>
+      </S.Buttons>
     </S.Conteudo>
   );
 };
 
 
 
-       
