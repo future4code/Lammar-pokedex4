@@ -1,6 +1,6 @@
 import React, { useContext} from 'react';
 import { PokeCard } from "./PokeCard";
-import { GlobalStateContext } from "../../context/GlobalStateContext";
+import { GlobalStateContext } from "../../context/Context";
 import * as S from './style'
 
 const Home = () => {
