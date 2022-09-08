@@ -29,11 +29,9 @@ export const GlobalState = (props) => {
     setPokemons(listPokedex);
   };
 
-  console.log(listPokedex);
-
   return (
     <GlobalStateContext.Provider
-      value={{ states, setters, capturaPokemon, listPokedex }}
+      value={{ states, setters, capturaPokemon }}
     >
       {props.children}
     </GlobalStateContext.Provider>

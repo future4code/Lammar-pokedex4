@@ -1,19 +1,31 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { goToDetailsPage, goToHomePage } from '../../routes/coordinator';
+import React from "react";
+import { GlobalStateContext } from "../../context/Context";
+import { useContext } from "react";
+import { PokedexCard } from "./PokedexCard";
+import * as S from '../Home/style'
 
-function Pokedex() {
-  const navigate = useNavigate()
+const Pokedex = () => {
 
+  const { states } = useContext(GlobalStateContext)
+
+  const pokedexList = states.pokedex &&
+    states.pokedex.sort((a, b) => {
+      return a.id - b.id
+    })
+      .map((pokemon, index) => {
+        return (
+          <PokedexCard
+            key={pokemon.name}
+            name={pokemon.name}
+            index={index}
+          />
+        );
+      });
   return (
-    <div>
-      <p>Pokedex</p>
-      <button onClick={() => { goToHomePage(navigate) }}> Voltar pra lista de Pokemons</button>
-      <button onClick={() => { goToDetailsPage(navigate) }}> Ver Detalhes</button>
-
-
-    </div>
+    <S.Container>
+        {states.pokedex && pokedexList}
+    </S.Container>
   );
-}
+};
 
 export default Pokedex;
