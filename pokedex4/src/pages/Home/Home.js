@@ -8,14 +8,16 @@ const Home = () => {
   const { states } = useContext(GlobalStateContext)
 
   const pokemonList = states.pokemons &&
-    states.pokemons.map((pokemon) => {
+    states.pokemons.map((pokemon, index) => {
         return (
           <PokeCard
-            key={pokemon.name}
-            name={pokemon.name}
+          key={pokemon.name}
+          name={pokemon.name}
+          index={index}
           />
         );
       });
+
 
   return (
     <S.Container>
