@@ -13,7 +13,7 @@ function Router() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/pokedex" element={<Pokedex />} />
-        <Route path="/:name" element={<DetailsPage />} />
+        <Route path="/pokemon/:name" element={<DetailsPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
