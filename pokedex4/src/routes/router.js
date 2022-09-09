@@ -9,13 +9,13 @@ import Header from '../Components/Header/Header';
 function Router() {
   return (
     <BrowserRouter>
-        <Header />
-        <Routes>
-            <Route path='/' element={ <Home/> }/>
-            <Route path="/pokedex" element={ <Pokedex/> }/>
-            <Route path="/:name" element={ <DetailsPage/> }/>
-            <Route path="/404" element={ <ErrorPage/> }/>
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="/pokedex" element={<Pokedex />} />
+        <Route path="/:name" element={<DetailsPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
