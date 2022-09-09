@@ -2,6 +2,7 @@ import React from "react";
 import { GlobalStateContext } from "../../context/Context";
 import { useContext } from "react";
 import { PokedexCard } from "./PokedexCard";
+import HeaderPokedex from "../../Components/Header/HeaderPokedex"
 import * as S from '../Home/style'
 
 const Pokedex = () => {
@@ -23,8 +24,10 @@ const Pokedex = () => {
       });
   return (
     <S.Container>
+      <HeaderPokedex/>
         {states.pokedex && pokedexList}
     </S.Container>
+    
   );
 };
 
