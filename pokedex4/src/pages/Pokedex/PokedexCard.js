@@ -17,7 +17,7 @@ export const PokedexCard = (props) => {
 
   const remover = (poke, index) => {
     const pokeInHome = { ...poke }
-    const newPokeHome = [ pokeInHome, ...states.pokemons]
+    const newPokeHome = [pokeInHome, ...states.pokemons]
     setters.setPokemons(newPokeHome)
     if (pokemon === poke) {
       states.pokedex.splice(index, 1)
@@ -28,11 +28,11 @@ export const PokedexCard = (props) => {
     <S.Conteudo>
       <S.Card>
         <img src={pokemon.sprites && pokemon.sprites.other.dream_world.front_default}
-            alt={pokemon.name}
-         />
-          <div>
-            <p>{pokemon.name}</p>
-          </div>
+          alt={pokemon.name}
+        />
+        <div>
+          <p>{pokemon.name}</p>
+        </div>
       </S.Card>
 
       <S.Buttons>
