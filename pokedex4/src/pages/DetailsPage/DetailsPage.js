@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Ataques, Tipos, PageDetail, ImagesDetails, Poderes, Containers, Container2 } from "./style";
 import { useParams } from "react-router-dom";
+import HeaderDetails from "../../Components/Header/HeaderDetails"
 import axios from "axios";
 
 function DetailsPage() {
@@ -25,6 +26,7 @@ function DetailsPage() {
 
   return (
     <div>
+      <HeaderDetails/>
       <PageDetail>
         <ImagesDetails>
           <img src={imagem} alt="pokemon" />
