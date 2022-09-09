@@ -43,7 +43,7 @@ export const PokeCard = (props) => {
         </Button>
         <Button colorScheme='blue'
           onClick={() => {
-            navigate(`/${pokemon.name}`)
+            navigate(`/pokemon/${pokemon.name}`)
           }}> Ver detalhes
         </Button>
       </S.Buttons>
